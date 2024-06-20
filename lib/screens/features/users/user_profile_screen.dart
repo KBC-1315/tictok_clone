@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tictok_clone/constants/gaps.dart';
 import 'package:tictok_clone/constants/sizes.dart';
+import 'package:tictok_clone/screens/features/settings/settings_screen.dart';
 import 'package:tictok_clone/screens/features/users/widgets/persistent_tabbar.dart';
 
 class UserProfileScreen extends StatefulWidget {
@@ -13,6 +14,11 @@ class UserProfileScreen extends StatefulWidget {
 }
 
 class _UserProfileScreenState extends State<UserProfileScreen> {
+  void _onGearPressed(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const SettingsScreen()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -59,7 +65,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 title: const Text("User"),
                 actions: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () => _onGearPressed(context),
                     icon: const FaIcon(
                       FontAwesomeIcons.gear,
                       size: 20,
